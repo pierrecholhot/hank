@@ -84,69 +84,31 @@ memoryChart = new Highcharts.Chart({
     },
   }]
 });
-var eventsOverThePast2min = [];
-var twoMinutes = 2 * 60 * 1000;
-var alerts = [{
-  average: 0,
-  highUsage: false,
-  timestamp: new Date().getTime()
-}];
 
-socket.on('monitor', function (data) {
-  eventsOverThePast2min.push(data);
-  var tsFirstEvent = eventsOverThePast2min[0].timestamp;
-  var tsLastEvent = eventsOverThePast2min[eventsOverThePast2min.length-1].timestamp;
-  if( tsFirstEvent + twoMinutes <= tsLastEvent ){
-    var i = eventsOverThePast2min.length;
-    var totalAvg = 0;
-    while (--i) totalAvg += eventsOverThePast2min[i].loadavg[0];
+socket.on('alert', function(alertInfo){
+  var node = document.createElement("p");
+  var message = "High load alert recovered - load = " + alertInfo.average;
 
-    var totalEvents = eventsOverThePast2min.length;
-    var average = totalAvg / totalEvents;
-    var highUsage = average > data.maxload / 4;
-
-    if(alerts[alerts.length-1].highUsage !== highUsage){
-
-      var alertInfo = {
-        average: average,
-        highUsage: highUsage,
-        timestamp: new Date().getTime()
-      };
-
-      alerts.push(alertInfo);
-
-      var node = document.createElement("p");
-      var message;
-
-      if(highUsage){
-        message = "High load generated an alert - load = " + alertInfo.average + ", triggered at " + new Date(alertInfo.timestamp);
-      }else{
-        message = "High load alert recovered - load = " + alertInfo.average;
-      }
-
-      node.appendChild(document.createTextNode(message));
-      document.getElementById("log").appendChild(node);
-    }
-
-    eventsOverThePast2min.length = 0;
+  if (alertInfo.highUsage) {
+    message = "High load generated an alert - load = " + alertInfo.average + ", triggered at " + new Date(alertInfo.timestamp);
   }
 
+  node.appendChild(document.createTextNode(message));
+  document.getElementById("log").appendChild(node);
+})
 
-  // console.log('----------------------------------');
-});
-
-document.getElementById('ddos').addEventListener('click', function(){
+document.getElementById('stress').addEventListener('click', function(){
   var oReq = new XMLHttpRequest();
-  oReq.open("GET", "/ddos");
+  oReq.open("GET", "/stress");
   oReq.send();
-  document.getElementById('ddos').style.display = 'none';
-  document.getElementById('ddos-clear').style.display = 'inline-block';
+  document.getElementById('stress').style.display = 'none';
+  document.getElementById('unstress').style.display = 'inline-block';
 }, false);
 
-document.getElementById('ddos-clear').addEventListener('click', function(){
+document.getElementById('unstress').addEventListener('click', function(){
   var oReq = new XMLHttpRequest();
-  oReq.open("GET", "/ddos-clear");
+  oReq.open("GET", "/unstress");
   oReq.send();
-  document.getElementById('ddos').style.display = 'inline-block';
-  document.getElementById('ddos-clear').style.display = 'none';
+  document.getElementById('stress').style.display = 'inline-block';
+  document.getElementById('unstress').style.display = 'none';
 }, false);
