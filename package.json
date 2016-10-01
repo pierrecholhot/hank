@@ -1,0 +1,14 @@
+{
+  "name": "ddti",
+  "version": "1.0.0",
+  "description": "technical interview",
+  "main": "server.js",
+  "scripts": {},
+  "author": "Pierre Cholhot <hello@pierre.cx>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "os-monitor": "^1.0.4",
+    "socket.io": "^1.4.8"
+  }
+}

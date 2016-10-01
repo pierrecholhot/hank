@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DDTI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="scripts/highcharts-theme.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      body{font-family: "Courier New", arial;}
+      .panel{
+        padding: 24px 32px;
+        background: #607D8B;
+        color: #FFFFFF;
+      }
+      .panel p:before{content: "- "}
+      .header h1{
+        font-weight: 100;
+        font-size: 1.56em;
+      }
+      .header{ display: flex; align-items: center; }
+      .header h1{ margin: 0; flex: 1 }
+      .chart-container{
+        padding: 20px;
+      }
+      .chart{
+        height:400px;
+      }
+      button {
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        outline: none;
+        border-radius: 2px;
+        background-color: #607D8B;
+        color: #FFF;
+        border: 0;
+        padding: 8px 12px;
+        text-align: center;
+        margin-left: 10px;
+      }
+      #ddos{background: #b71c1c}
+      #ddos-clear{background: #fff; color: #607D8B}
+
+      @media (min-width: 960px){
+        .charts {display: flex;}
+        .chart-container-lg{width: 65%;}
+        .chart-container-sm{width: 35%;}
+        .chart-container + .chart-container {padding-left: 0;}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel header">
+      <h1>[basic monitor] by [pierre.cx]</h1>
+      <button id="ddos">Stress test</button>
+      <button id="ddos-clear">Stress stop</button>
+    </div>
+    <div class="charts">
+      <div class="chart-container chart-container-lg">
+        <div id="loadAvgChart" class="chart"></div>
+      </div>
+      <div class="chart-container chart-container-sm">
+        <div id="memoryChart" class="chart"></div>
+      </div>
+    </div>
+    <div id="log" class="panel"></div>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
