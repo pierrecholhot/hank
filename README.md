@@ -13,6 +13,10 @@ Senior FE web developer in a major web agency in Paris for the past 5 years. Not
 - os-monitor
 - socket.io
 - highcharts.js
+- webpack
+- ES6 / babel
+- postCss
+- cssNext
 
 ## My technical choices !== My technical skills
 One of the things that distinguish experienced Front-End developers from others, is their ability to correctly assert certain needs for projects.
@@ -46,6 +50,11 @@ I could have `exec('uptime')` in a `setInterval`, but well, someone already did 
 I needed to find a way to "stress test" the OS in order to test my alerting system.
 I couldn't find any NPM packages that would help me accomplish this. Maybe I wasn't using the right keywords.
 I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zero > /dev/null`). I have no idea what side effects it has and would never do that in a production env.
+
+## How can this be improved. AKA Todo List:
+- ESLint
+- Store Alerts history and recentEvents in a Database rather than in the memory
+- ...
 
 ## That technical test
 I couldn't help noticing that there were a bunch of os monitoring scripts on github. Mainly made by developers for this specific interview question.
