@@ -17,7 +17,6 @@
         background: #607D8B;
         color: #FFFFFF;
       }
-      .panel p:before{content: "- "}
       .header h1{
         font-weight: 100;
         font-size: 1.56em;
@@ -68,7 +67,11 @@
         <div id="memoryChart" class="chart"></div>
       </div>
     </div>
-    <div id="log" class="panel"></div>
+    <div id="log" class="panel">
+      <p>--------------------------------------------------------------------------</p>
+      <p>An alert is triggered when 25% of the server's total CPU(s) power is used.</p>
+      <p>--------------------------------------------------------------------------</p>
+    </div>
     <script src="scripts/main.js"></script>
   </body>
 </html>

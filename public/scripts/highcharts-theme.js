@@ -1,3 +1,9 @@
+Highcharts.setOptions({
+	global: {
+		useUTC: false
+	}
+});
+
 Highcharts.createElement('link', {
    href: 'https://fonts.googleapis.com/css?family=Unica+One',
    rel: 'stylesheet',
