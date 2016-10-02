@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>DDTI</title>
+    <title>[hank]</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
@@ -31,8 +31,6 @@
       }
       button {
         cursor: pointer;
-        margin: 0px;
-        padding: 0px;
         outline: none;
         border-radius: 2px;
         background-color: #607D8B;
@@ -43,8 +41,7 @@
         margin-left: 10px;
       }
       #stress{background: #b71c1c}
-      #unstress{background: #fff; color: #607D8B}
-
+      #unstress{background: #fff; color: #607D8B;}
       @media (min-width: 960px){
         .charts {display: flex;}
         .chart-container-lg{width: 65%;}
@@ -55,9 +52,9 @@
   </head>
   <body>
     <div class="panel header">
-      <h1>[basic monitor] by [pierre.cx]</h1>
-      <button id="stress">Stress</button>
-      <button id="unstress">Unstress</button>
+      <h1>[hank] by [pierre.cx]</h1>
+      <button id="stress" title="$ cat /dev/zero > /dev/null">Stress</button>
+      <button id="unstress" title="$ killall cat">Unstress</button>
     </div>
     <div class="charts">
       <div class="chart-container chart-container-lg">

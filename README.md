@@ -1,9 +1,13 @@
-> Basic OS monitoring UI built on top of HighCharts.js
+# Hank
+
+Live OS monitoring UI built on top of HighCharts.js
+
+> Hank will alert you when your CPU starts cooking.
 
 ## Developer Background
 Senior FE web developer in a major web agency in Paris for the past 5 years. Not a "graph expert".
 
-## Current tech stack
+## Current tech stack being used
 - node.js
 - express.js
 - os-monitor
@@ -37,9 +41,6 @@ And yes, sometimes, python's `simpleHTTPserver` can do the job when working on s
 ### os-monitor
 I am a big fan of "using what's already available out there".
 I could have `exec('uptime')` in a `setInterval`, but well, someone already did that for us.
-
-### socket.io
-IMHO, its our best choice for simple Realtime communication between a Client and a Server.
 
 ### Stress test.
 I needed to find a way to "stress test" the OS in order to test my alerting system.

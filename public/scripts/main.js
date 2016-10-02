@@ -81,19 +81,13 @@ function humanizeAlert(data){
 }
 
 function stress () {
-  var oReq = new XMLHttpRequest();
-  oReq.open("GET", "/stress");
-  oReq.send();
+  var xhr = new XMLHttpRequest(); xhr.open("GET", "/stress"); xhr.send();
   document.getElementById('stress').style.display = 'none';
-  document.getElementById('unstress').style.display = 'inline-block';
 }
 
 function unstress () {
-  var oReq = new XMLHttpRequest();
-  oReq.open("GET", "/unstress");
-  oReq.send();
+  var xhr = new XMLHttpRequest(); xhr.open("GET", "/unstress"); xhr.send();
   document.getElementById('stress').style.display = 'inline-block';
-  document.getElementById('unstress').style.display = 'none';
 }
 
 document.getElementById('stress').addEventListener('click', stress, false);

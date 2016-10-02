@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
 });
 
 server.listen(3000, function () {
-  console.log('App listening on port 3000');
+  console.log('Hank is listening on port 3000');
 });
 
 function totalAverage(arr){

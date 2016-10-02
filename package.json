@@ -1,7 +1,7 @@
 {
-  "name": "ddti",
+  "name": "hank",
   "version": "1.0.0",
-  "description": "technical interview",
+  "description": "DD Technical Interview",
   "main": "server.js",
   "scripts": {},
   "author": "Pierre Cholhot <hello@pierre.cx>",
