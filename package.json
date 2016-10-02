@@ -1,14 +1,13 @@
 {
   "name": "hank",
   "version": "1.0.0",
-  "description": "DD Technical Interview",
+  "description": "Live OS monitoring UI built on top of HighCharts.js",
   "main": "server.js",
   "scripts": {},
   "author": "Pierre Cholhot <hello@pierre.cx>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
-    "node-uuid": "^1.4.7",
     "os-monitor": "^1.0.4",
     "socket.io": "^1.4.8"
   }
