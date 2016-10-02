@@ -5,7 +5,6 @@ var io = require('socket.io')(server);
 var os = require('os');
 var monitor = require('os-monitor');
 var exec = require('child_process').exec;
-var uuid = require('node-uuid');
 
 var history = [];
 var recentEvents = [];
