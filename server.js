@@ -22,16 +22,16 @@ monitor.start({
 });
 
 io.on('connection', function(){
-  io.emit('initialState', { history: history, alerts: alerts, cpus: os.cpus().length });
+  var filtered = alerts.filter(function(a, i){ return i !== 0; });
+  io.emit('initialState', { history: history, alerts: filtered, cpus: os.cpus().length });
 });
 
 monitor.on('monitor', function(event) {
   var data = {
-    loadavg: event.loadavg,
+    loadavg: event.loadavg[0],
     timestamp: new Date().getTime(),
     usedmemory: Math.floor((event.totalmem - event.freemem) * 100 / event.totalmem)
   };
-  io.emit('monitor', data);
 
   recentEvents.push(data);
   if (recentEvents[0].timestamp + monitor.minutes(2) <= recentEvents[recentEvents.length-1].timestamp) {
@@ -52,7 +52,10 @@ monitor.on('monitor', function(event) {
   history.push(data);
   if (history[0].timestamp + monitor.minutes(10) <= history[history.length-1].timestamp) {
     history.shift();
+    data.historyFull = true;
   }
+
+  io.emit('monitor', data);
 
 });
 
@@ -76,6 +79,6 @@ server.listen(3000, function () {
 
 function totalAverage(arr){
   var i = arr.length, total = 0;
-  while (--i) total += arr[i].loadavg[0];
+  while (--i) total += arr[i].loadavg;
   return total;
 }
