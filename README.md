@@ -52,7 +52,8 @@ I couldn't find any NPM packages that would help me accomplish this. Maybe I was
 I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zero > /dev/null`). I have no idea what side effects it has and would never do that in a production env.
 
 ## How can this be improved. AKA Todo List:
-- ESLint
+- Unit test the Alert system
+- Add ESLint
 - Store Alerts history and recentEvents in a Database rather than in the memory
 - ...
 
