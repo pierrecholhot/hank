@@ -1,0 +1,99 @@
+:root {
+  --colorMain: #1D2023;
+  --colorTitles: #252C33;
+  --colorChartBg: #21272C;
+  --colorLight: #75808A;
+  --colorTexts: #FFF;
+  --colorDanger: #FD6B57;
+
+  --fontFamilyDefault: sans-serif;
+  --fontFamilyTitles: "Unica One", sans-serif;
+  --fontFamilyFixed: "Courier New", monotype;
+}
+
+::selection {
+  color: var(--colorTexts);
+  background-color: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  color: var(--colorTexts);
+  background: var(--colorMain);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header h1 {
+  flex: 1;
+  font-weight: 100;
+  font-size: 1.56em;
+  margin: 0;
+  color: var(--colorDanger);
+  font-family: var(--fontFamilyTitles);
+}
+
+.header small {
+  font-size: .6em;
+  color: var(--colorLight);
+  font-family: var(--fontFamilyDefault);
+}
+
+.header button {
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+  background: var(--colorLight);
+  color: var(--colorTexts);
+  border: 0;
+  padding: 8px 12px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.panel {
+  padding: 24px 32px;
+}
+
+.chart {
+  height: 400px;
+}
+
+.chart-container{
+  padding: 32px 16px;
+  background: var(--colorChartBg);
+}
+
+#log p {
+  font-family: var(--fontFamilyFixed);
+}
+
+#log .danger {
+  color: var(--colorDanger);
+}
+
+#stress {
+  background: var(--colorDanger);
+}
+
+@media (min-width: 960px){
+  .charts { display: flex; }
+  .chart-container-lg{ width: 65%; }
+  .chart-container-sm{ width: 35%; }
+}
+
+@media (min-width: 1440px){
+  .chart-container-lg{ width: 70%; }
+  .chart-container-sm{ width: 30%; }
+}
+
+@media (min-width: 1920px){
+  .chart-container-lg{ width: 80%; }
+  .chart-container-sm{ width: 20%; }
+}

@@ -3,19 +3,34 @@ import request from 'superagent'
 import Highcharts from 'highcharts'
 require('./charts/')(Highcharts)
 
+import '../styles/index.css'
 import loadChartConfig from './config/load-average'
 import memoryChartConfig from './config/memory'
 import { alertUser } from './alert'
 
 const socket = IO.connect('http://localhost:3000/')
 
-socket.on('initialState', (state) => {
+socket.on('initialState', initialize);
+socket.on('alert', alertUser);
+
+function initialize (state) {
   const loadChart = initializeLoadAvgChart(state)
   const memoryChart = initializeMemoryChart(state)
   state.alerts.forEach(alertUser)
-});
+}
 
-socket.on('alert', alertUser);
+function initializeLoadAvgChart (state) {
+  const rewriteHistoryObj = ({ timestamp, loadavg }) => [timestamp, loadavg]
+  loadChartConfig.chart.events.load = loadAvgChartReady
+  loadChartConfig.yAxis.max = state.cpus
+  loadChartConfig.series[0].data = state.history.map(rewriteHistoryObj)
+  return new Highcharts.Chart(loadChartConfig)
+}
+
+function initializeMemoryChart (state) {
+  memoryChartConfig.chart.events.load = memoryChartReady
+  return new Highcharts.Chart(memoryChartConfig)
+}
 
 function loadAvgChartReady (e) {
   socket.on('monitor', ({ timestamp, loadavg, historyFull }) => {
@@ -33,19 +48,6 @@ function memoryChartReady (e) {
   socket.on('monitor', ({ usedmemory }) => {
     e.target.series[0].points[0].update(usedmemory)
   })
-}
-
-function initializeLoadAvgChart (state) {
-  const rewriteHistoryObj = ({ timestamp, loadavg }) => [timestamp, loadavg]
-  loadChartConfig.chart.events.load = loadAvgChartReady
-  loadChartConfig.yAxis.max = state.cpus
-  loadChartConfig.series[0].data = state.history.map(rewriteHistoryObj)
-  return new Highcharts.Chart(loadChartConfig)
-}
-
-function initializeMemoryChart (state) {
-  memoryChartConfig.chart.events.load = memoryChartReady
-  return new Highcharts.Chart(memoryChartConfig)
 }
 
 function stress (e) {

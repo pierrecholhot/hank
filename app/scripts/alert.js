@@ -7,6 +7,7 @@ export const humanizeData = function(data) {
 export const alertUser = function (data) {
   var text = humanizeData(data);
   var node = document.createElement("p");
+  data.highUsage && node.classList.add('danger');
   var log = document.getElementById("log");
   node.appendChild(document.createTextNode(text));
   log.insertBefore(node, log.firstChild);
