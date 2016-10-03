@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title HANK
+    link(rel='shortcut icon', href='/favicon.png')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css', rel='stylesheet')
+  body
+    
+    .panel.header
+      h1 [ hank ] <small>by pierre.cx</small>
+      button#stress(title='$ cat /dev/zero > /dev/null') Stress
+      button#unstress(title='$ killall cat') Unstress
+    
+    .charts
+      .chart-container.chart-container-lg
+        #loadAvgChart.chart
+      .chart-container.chart-container-sm
+        #memoryChart.chart
+    
+    #log.panel
+      p --------------------------------------------------------------------------
+      p An alert is triggered when 25% of the server's total CPU(s) power is used.
+      p --------------------------------------------------------------------------
+    
+    script(src='bundle.js')
