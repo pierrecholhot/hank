@@ -4,10 +4,10 @@ html
     meta(charset='utf-8')
     title HANK
     link(rel='shortcut icon', href='/favicon.png')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css', rel='stylesheet')
+
   body
     
-    .panel.header
+    .header.panel
       h1 [ hank ] <small>by pierre.cx</small>
       button#stress(title='$ cat /dev/zero > /dev/null') Stress
       button#unstress(title='$ killall cat') Unstress
@@ -19,8 +19,9 @@ html
         #memoryChart.chart
     
     #log.panel
-      p --------------------------------------------------------------------------
-      p An alert is triggered when 25% of the server's total CPU(s) power is used.
-      p --------------------------------------------------------------------------
+      p -----------------------------------------------------
+      p Hank detected that the server has #{totalCPUs} cores
+      p He will alert you when the CPU load average exceeds #{maxLoad}
+      p -----------------------------------------------------
     
     script(src='bundle.js')

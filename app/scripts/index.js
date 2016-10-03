@@ -3,6 +3,7 @@ import request from 'superagent'
 import Highcharts from 'highcharts'
 require('./charts/')(Highcharts)
 
+import 'normalize.css'
 import '../styles/index.css'
 import loadChartConfig from './config/load-average'
 import memoryChartConfig from './config/memory'

@@ -21,6 +21,7 @@
     "highcharts-exporting": "^0.1.2",
     "highcharts-more": "^0.1.2",
     "highcharts-solid-gauge": "^0.1.2",
+    "normalize.css": "^4.2.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^0.13.0",
     "style-loader": "^0.13.1",
