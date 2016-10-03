@@ -4,7 +4,7 @@
   "description": "Live OS monitoring UI built on top of HighCharts.js",
   "main": "server.js",
   "scripts": {
-    "start": "eslint && webpack && node server.js",
+    "start": "npm run lint && webpack && node server.js",
 		"lint": "eslint ./server.js ./app/scripts/index.js",
 		"dev": "webpack --watch"
   },
