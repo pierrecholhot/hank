@@ -5,7 +5,7 @@ Live OS monitoring UI built on top of HighCharts.js
 > Hank will alert you when your CPU starts cooking.
 
 ## Developer Background
-Senior FE web developer in a major web agency in Paris for the past 5 years. Not a "graph expert".
+Senior FE web developer in a major web agency in Paris for the past 5 years. Fast learner but not a "graph expert".
 
 ## Current tech stack being used
 - node.js
@@ -27,7 +27,7 @@ React is fun, I will probably find a good use for it in most of my future projec
 But we are smart people, right? Do we really need React? How will React help us on this specific task?
 IMHO, React is mainly for -out of the box- good performance, re-usable components and for "easier" maintenance.
 
-I couldn't see a fit for React here. I saw it [on this project](https://github.com/pierrecholhot/auchan) and [there] =)
+I couldn't see a fit for React here. I saw it [on this other project](https://github.com/pierrecholhot/auchan) =)
 
 ### highcharts VS d3
 Simplicity VS Robustness.  
@@ -55,7 +55,7 @@ I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zer
 - Unit test the Alert system
 - Add ESLint
 - Store Alerts history and recentEvents in a Database rather than in the memory
-- ...
+- Recent events over the past 2 minutes are duplicated in our 10 minutes history array. Should find those 2 minutes within our 10 minutes data.
 
 ## That technical test
 I couldn't help noticing that there were a bunch of os monitoring scripts on github. Mainly made by developers for this specific interview question.
