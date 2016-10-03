@@ -1,23 +1,23 @@
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var os = require('os');
-var monitor = require('os-monitor');
-var exec = require('child_process').exec;
+const express = require('express');
+const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+const os = require('os');
+const monitor = require('os-monitor');
+const exec = require('child_process').exec;
 
-var monitorConfig = {
+const monitorConfig = {
   delay: monitor.seconds(1),
   immediate: true
 };
 
-var TOTAL_CPU = os.cpus().length;
-var MAX_LOAD = TOTAL_CPU / 4;
+const TOTAL_CPU = os.cpus().length;
+const MAX_LOAD = TOTAL_CPU / 4;
 
-var history = [];
-var recentEvents = [];
+const history = [];
+const recentEvents = [];
 
-var alerts = [{
+const alerts = [{
   average: 0,
   highUsage: false,
   timestamp: new Date().getTime()
@@ -27,17 +27,17 @@ app.use(express.static('public'));
 app.set('views', './app/views')
 app.set('view engine', 'pug');
 
-app.get('/stress', function (req, res) {
+app.get('/stress', (req, res) => {
   stress();
   res.sendStatus(200);
 });
 
-app.get('/unstress', function (req, res) {
+app.get('/unstress', (req, res) => {
   unstress();
   res.sendStatus(200);
 });
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('index', {
     totalCPUs: TOTAL_CPU,
     maxLoad: MAX_LOAD
@@ -65,8 +65,8 @@ function unstress() {
 
 function emitInitialState() {
   io.emit('initialState', {
+    history,
     cpus: TOTAL_CPU,
-    history: history,
     alerts: alerts.filter(function (a, i) {
       return i !== 0;
     })
@@ -74,8 +74,7 @@ function emitInitialState() {
 }
 
 function handleMonitorEvent(event) {
-
-  var data = {
+  const data = {
     loadavg: event.loadavg[0],
     timestamp: new Date().getTime(),
     usedmemory: Math.floor((event.totalmem - event.freemem) * 100 / event.totalmem)
@@ -85,11 +84,8 @@ function handleMonitorEvent(event) {
   recentEvents.push(data);
 
   if (isCollectionFull(recentEvents, monitor.minutes(2))) {
-    var totalLoadAvg = recentEvents.reduce(function (a, b) {
-      return (a.loadavg || a) + b.loadavg;
-    });
-    var average = totalLoadAvg / recentEvents.length;
-
+    const totalLoadAvg = recentEvents.reduce((a, b) => (a.loadavg || a) + b.loadavg);
+    const average = totalLoadAvg / recentEvents.length;
     checkForAlert(average, data.timestamp);
     recentEvents.length = 0;
   }
@@ -107,16 +103,11 @@ function isCollectionFull(col, max){
 }
 
 function checkForAlert(average, timestamp) {
-  var highUsage = average > MAX_LOAD;
-  var lastAlert = alerts[alerts.length - 1];
+  const highUsage = average > MAX_LOAD;
+  const lastAlert = alerts[alerts.length - 1];
 
   if (lastAlert.highUsage !== highUsage) {
-    var alertInfo = {
-      average: average,
-      highUsage: highUsage,
-      timestamp: timestamp
-    };
-
+    const alertInfo = { average, highUsage, timestamp };
     alerts.push(alertInfo);
     io.emit('alert', alertInfo);
   }

@@ -5,6 +5,7 @@ require('./charts/')(Highcharts)
 
 import 'normalize.css'
 import '../styles/index.css'
+
 import loadChartConfig from './config/load-average'
 import memoryChartConfig from './config/memory'
 import { alertUser } from './alert'
