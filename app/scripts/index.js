@@ -12,8 +12,8 @@ import { alertUser } from './alert'
 
 const socket = IO.connect('http://localhost:3000/')
 
-socket.on('initialState', initialize);
-socket.on('alert', alertUser);
+socket.on('initialState', initialize)
+socket.on('alert', alertUser)
 
 function initialize (state) {
   const loadChart = initializeLoadAvgChart(state)
