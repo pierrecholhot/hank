@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 monitor.start(monitorConfig)
 monitor.on('monitor', handleMonitorEvent)
 io.on('connection', emitInitialState)
-listen();
+listen()
 
 function listen() {
   server.listen(3000, () => {
@@ -116,7 +116,7 @@ function checkForAlert(average, timestamp) {
     io.emit('alert', alertInfo)
   }
 
-  return alertInfo;
+  return alertInfo
 }
 
 module.exports = { listen, kill, checkForAlert }
