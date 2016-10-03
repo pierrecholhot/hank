@@ -25,6 +25,6 @@ const loadAverage = {
   series: [{
     name: 'loadavg1'
   }]
-};
+}
 
-export default loadAverage;
+export default loadAverage

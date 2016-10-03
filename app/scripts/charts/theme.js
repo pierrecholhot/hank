@@ -1,16 +1,16 @@
-module.exports = function (Highcharts){
+module.exports = function (Highcharts) {
 
   Highcharts.setOptions({
     global: {
       useUTC: false
     }
-  });
+  })
 
   Highcharts.createElement('link', {
     href: 'https://fonts.googleapis.com/css?family=Unica+One',
     rel: 'stylesheet',
     type: 'text/css'
-  }, null, document.getElementsByTagName('head')[0]);
+  }, null, document.getElementsByTagName('head')[0])
 
   Highcharts.theme = {
     colors: [
@@ -212,8 +212,8 @@ module.exports = function (Highcharts){
     textColor: '#C0C0C0',
     contrastTextColor: '#F0F0F3',
     maskColor: 'rgba(255,255,255,0.3)'
-  };
+  }
 
-  Highcharts.setOptions(Highcharts.theme);
+  Highcharts.setOptions(Highcharts.theme)
 
 }

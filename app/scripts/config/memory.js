@@ -29,6 +29,6 @@ const memory = {
       format: '{y}%'
     }
   }]
-};
+}
 
-export default memory;
+export default memory
