@@ -4,7 +4,9 @@
   "description": "Live OS monitoring UI built on top of HighCharts.js",
   "main": "server.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack && node server.js"
+    "start": "eslint && webpack && node server.js",
+		"lint": "eslint ./server.js ./app/scripts/index.js",
+		"dev": "webpack --watch"
   },
   "author": "Pierre Cholhot <hello@pierre.cx>",
   "license": "ISC",
@@ -19,6 +21,8 @@
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "css-loader": "^0.25.0",
+    "eslint": "^3.7.0",
+    "eslint-loader": "^1.5.0",
     "highcharts": "^4.2.3",
     "highcharts-exporting": "^0.1.2",
     "highcharts-more": "^0.1.2",

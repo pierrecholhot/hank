@@ -1,13 +1,13 @@
 module.exports = {
-  entry: "./app/scripts/index.js",
+  entry: './app/scripts/index.js',
   output: {
     path: __dirname,
-    filename: "./public/bundle.js"
+    filename: './public/bundle.js'
   },
   module: {
     loaders: [{
       test: /\.css$/,
-      loader: "style-loader!css-loader!postcss-loader"
+      loader: 'style-loader!css-loader!postcss-loader'
     }, {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
@@ -17,9 +17,12 @@ module.exports = {
       }
     }]
   },
+  eslint: {
+    configFile: './.eslintrc'
+  },
   postcss: function (webpack) {
     return [
-      require("postcss-cssnext")(),
+      require('postcss-cssnext')(),
     ]
   }
 };
