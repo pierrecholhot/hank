@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "webpack && node server.js",
-		"lint": "eslint ./server.js ./app/scripts/index.js",
-		"dev": "webpack --watch"
+    "lint": "eslint ./server.js ./app/scripts/index.js",
+    "dev": "webpack --watch"
   },
   "author": "Pierre Cholhot <hello@pierre.cx>",
   "license": "ISC",
