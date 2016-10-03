@@ -67,9 +67,7 @@ function emitInitialState() {
   io.emit('initialState', {
     history,
     cpus: TOTAL_CPU,
-    alerts: alerts.filter(function (a, i) {
-      return i !== 0;
-    })
+    alerts: alerts.filter((a, i) => i !== 0)
   });
 }
 
