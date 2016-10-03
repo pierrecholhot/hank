@@ -5,7 +5,19 @@ Live OS monitoring UI built on top of HighCharts.js
 > Hank will alert you when your CPU starts cooking.
 
 ## Preview
+
 ![Screenshot](https://raw.githubusercontent.com/pierrecholhot/hank/master/public/screenshot.png)
+
+## Run
+
+    git clone git@github.com:pierrecholhot/hank.git
+    cd hank
+    npm install
+    npm start
+
+## Develop
+
+    webpack --watch
 
 ## Developer Background
 Senior FE web developer in a major web agency in Paris for the past 5 years. Fast learner but not a "graph expert".
@@ -56,9 +68,10 @@ I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zer
 
 ## How can this be improved. AKA Todo List:
 - Unit test the Alert system
-- Add ESLint
+- Add `ESLint`
 - Store Alerts history and recentEvents in a Database rather than in the memory
 - Recent events over the past 2 minutes are duplicated in our 10 minutes history array. Should find those 2 minutes within our 10 minutes data.
+- Add `postCSS import` plugin and externalize css variables in another file. `import normalize.css` in `index.css` rather than in `index.js`
 
 ## That technical test
 I couldn't help noticing that there were a bunch of os monitoring scripts on github. Mainly made by developers for this specific interview question.
