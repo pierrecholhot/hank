@@ -9,7 +9,7 @@ describe('Alert logic', function () {
     server = require('../server');
   });
 
-  it('should raise an alert on high load average', function() {
+  it('should return an alert on high load average', function() {
     var r = server.checkForAlert(5, new Date().getTime());
     assert.equal(r.highUsage, true);
   });
