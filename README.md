@@ -15,6 +15,8 @@ Live OS monitoring UI built on top of HighCharts.js
     npm install
     npm start
 
+Then navigate to http://localhost:3000/
+
 ## Develop
 
     webpack --watch
