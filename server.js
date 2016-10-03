@@ -46,13 +46,19 @@ app.get('/', (req, res) => {
 
 monitor.start(monitorConfig)
 monitor.on('monitor', handleMonitorEvent)
-
 io.on('connection', emitInitialState)
+listen();
 
-server.listen(3000, started)
+function listen() {
+  server.listen(3000, () => {
+    console.log('Hank is listening on port 3000')
+  })
+}
 
-function started() {
-  console.log('Hank is listening on port 3000')
+function kill() {
+  server.close(() => {
+    console.log('Hank is no longer listening on port 3000')
+  })
 }
 
 function stress() {
@@ -103,10 +109,14 @@ function isCollectionFull(col, max){
 function checkForAlert(average, timestamp) {
   const highUsage = average > MAX_LOAD
   const lastAlert = alerts[alerts.length - 1]
+  const alertInfo = { average, highUsage, timestamp }
 
   if (lastAlert.highUsage !== highUsage) {
-    const alertInfo = { average, highUsage, timestamp }
     alerts.push(alertInfo)
     io.emit('alert', alertInfo)
   }
+
+  return alertInfo;
 }
+
+module.exports = { listen, kill, checkForAlert }

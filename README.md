@@ -25,6 +25,10 @@ Then navigate to http://localhost:3000/
 
     npm run lint
 
+## Test
+
+    npm test
+
 ## Developer Background
 Senior FE web developer in a major web agency in Paris for the past 5 years. Fast learner but not a "graph expert".
 
@@ -73,7 +77,7 @@ I couldn't find any NPM packages that would help me accomplish this. Maybe I was
 I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zero > /dev/null`). I have no idea what side effects it has and would never do that in a production env.
 
 ## How can this be improved
-- Unit test the Alert system
+- Add some more robust test cases. IE use spies to make sure the correct functions where invoked.
 - Store Alerts history and recentEvents in a Database rather than in the memory
 - Recent events over the past 2 minutes are duplicated in our 10 minutes history array. Should find those 2 minutes within our 10 minutes data.
 - Add `postCSS import` plugin and externalize css variables in another file. `import normalize.css` in `index.css` rather than in `index.js`
