@@ -6,9 +6,9 @@
   "scripts": {},
   "author": "Pierre Cholhot <hello@pierre.cx>",
   "license": "ISC",
-	"scripts": {
-		"start": "./node_modules/.bin/webpack && node server.js"
-	},
+  "scripts": {
+    "start": "./node_modules/.bin/webpack && node server.js"
+  },
   "dependencies": {
     "express": "^4.14.0",
     "os-monitor": "^1.0.4",
