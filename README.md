@@ -78,7 +78,7 @@ I then stackoverflow'd it and ended up with a one-liner shell cmd (`cat /dev/zer
 - Recent events over the past 2 minutes are duplicated in our 10 minutes history array. Should find those 2 minutes within our 10 minutes data.
 - Add `postCSS import` plugin and externalize css variables in another file. `import normalize.css` in `index.css` rather than in `index.js`
 
-## That technical test
+## Coding Challenge
 I couldn't help noticing that there were a bunch of os monitoring scripts on github. Mainly made by developers for this specific interview question.
 
 It was interesting seeing these different approaches.
@@ -92,7 +92,7 @@ https://github.com/roadhomegames/load_monitor
 
 and much more..
 
-## Coding Challenge
+### Load monitoring web application
 
 Create a simple web application that monitors load average on your machine:
 
