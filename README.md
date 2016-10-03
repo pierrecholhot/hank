@@ -4,6 +4,9 @@ Live OS monitoring UI built on top of HighCharts.js
 
 > Hank will alert you when your CPU starts cooking.
 
+## Preview
+![Screenshot](https://raw.githubusercontent.com/pierrecholhot/hank/master/public/screenshot.png)
+
 ## Developer Background
 Senior FE web developer in a major web agency in Paris for the past 5 years. Fast learner but not a "graph expert".
 
